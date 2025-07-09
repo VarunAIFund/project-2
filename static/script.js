@@ -185,7 +185,6 @@ function displaySearchResults(result) {
                         <span class="result-filename">${item.filename}</span>
                         <span class="confidence-score">${item.confidence}%</span>
                     </div>
-                    <div class="result-description">${item.description}</div>
                 </div>
             `;
             
