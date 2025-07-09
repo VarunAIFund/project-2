@@ -117,6 +117,20 @@ def index_screenshots(folder_path: str, output_file: str) -> None:
     print(f"\nIndexing complete! Processed {processed} new images.")
     print(f"Total images in index: {len(descriptions)}")
 
+def process_single_image(image_path: str, descriptions_file: str) -> bool:
+    """Process a single image and add to descriptions file."""
+    descriptions = load_descriptions(descriptions_file)
+    
+    if image_path in descriptions:
+        return True  # Already processed
+    
+    description = get_image_description(image_path)
+    if description:
+        descriptions[image_path] = description
+        save_descriptions(descriptions, descriptions_file)
+        return True
+    return False
+
 def main():
     parser = argparse.ArgumentParser(description="Index screenshots using GPT-4 Vision API")
     parser.add_argument('--folder', required=True, help='Path to folder containing screenshots')

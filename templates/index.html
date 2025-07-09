@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screenshot Search Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📸 Screenshot Search Tool</h1>
+            <p>Upload screenshots and search them using natural language</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <h2>Upload Screenshots</h2>
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <div class="upload-icon">📤</div>
+                        <p>Drag & drop screenshots here or <span class="browse-link">browse files</span></p>
+                        <input type="file" id="fileInput" multiple accept="image/*" style="display: none;">
+                        <div class="supported-formats">
+                            Supported: PNG, JPG, JPEG, GIF, BMP, WEBP
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="upload-results" id="uploadResults"></div>
+            </section>
+
+            <!-- Search Section -->
+            <section class="search-section">
+                <h2>Search Screenshots</h2>
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search for screenshots... (e.g., 'blue button login', 'error message', 'red warning')" />
+                    <button id="searchButton">🔍 Search</button>
+                </div>
+                
+                <div class="search-results" id="searchResults"></div>
+            </section>
+        </div>
+
+        <!-- Status Section -->
+        <section class="status-section">
+            <div class="status-info">
+                <span id="statusText">Ready to upload and search</span>
+                <span id="imageCount">0 images indexed</span>
+            </div>
+        </section>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <p>Processing images...</p>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
