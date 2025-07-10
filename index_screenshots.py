@@ -39,7 +39,7 @@ def get_image_description(image_path: str) -> str:
                     "content": [
                         {
                             "type": "text",
-                            "text": "Describe this screenshot in detail, including all visible text, UI elements, colors, buttons, error messages, and any other visual elements that someone might search for."
+                            "text": "Analyze this image and provide a description based on the following rules:\n\n1. IF the image contains text, UI elements, buttons, menus, forms, error messages, or any digital interface elements:\n   - Provide a detailed description including ALL visible text, UI elements, colors, buttons, error messages, and any other visual elements that someone might search for.\n\n2. IF the image is purely visual content without text (like nature photos, objects, people, etc.):\n   - Provide only ONE descriptive sentence focusing on the main visual elements, colors, and objects.\n\nAnalyze the image and apply the appropriate rule."
                         },
                         {
                             "type": "image_url",
